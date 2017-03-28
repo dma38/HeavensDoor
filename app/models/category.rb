@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
   validates :name, presence: true
-  has_many :flowerItem
+  validates :name, length: {maximum: 50}
+  has_many :flowerItems
 end

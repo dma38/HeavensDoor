@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-
+  resources 'categories', only: [:cat_index, :cat_show]
   resources 'flower_items', only: [:index, :show]
-
+  get '/cat_show/:id', to: 'category#cat_show'
     root to: 'flower_items#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
