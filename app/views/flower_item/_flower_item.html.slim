@@ -1,0 +1,11 @@
+.flower_item
+  h2 = flower_item.name
+  p
+    strong> Price: 
+    = number_to_currency flower_item.price
+  - if full_details
+    p = flower_item.description
+    - unless flower_item.image.empty?
+      = image_tag flower_item.image
+  - else
+    p = link_to 'details', flower_item

@@ -1,0 +1,18 @@
+.flower_item
+  h2 = flower_item.name
+  p
+    strong> Price: 
+    = number_to_currency flower_item.price
+  p = image_tag flower_item.image
+  - if full_details
+    p 
+      strong> Description: 
+      = flower_item.description
+    p 
+      strong> Location:
+      = flower_item.location.name
+    p 
+      strong> Category:
+      = flower_item.category.name
+  - else
+    p = link_to 'details', flower_item
