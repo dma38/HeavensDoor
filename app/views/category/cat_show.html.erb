@@ -3,12 +3,13 @@
   <h1>Category: <%=Category.find(params[:id]).name%></h1>
 <%= render "cat_index"%>
   <%Category.find(params[:id]).flowerItems.each do |item| %>
-  <h2><%= item.name%></h2>
-  <p><%= number_to_currency item.price %></p>
-  <p>
-      <%= image_tag(item.image, :alt => item.name) %>
-  </p>
-  <li><%=link_to "Details", "/flower_items/#{item.id}" %>
+  <div class = "flower_item">
+    <h2><%= item.name%></h2>
+    <p><%= number_to_currency item.price %></p>
+    <p><%= image_tag(item.image, :alt => item.name) %></p>
+    <li><%=link_to "Details", "/flower_items/#{item.id}" %></li>
+
+  </div>
   <%end%>
 </div>
-<%= link_to 'Home', root_path %>
+<p class= "footer_home"><%= link_to 'Home', root_path %></p>

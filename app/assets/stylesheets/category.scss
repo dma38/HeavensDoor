@@ -1,3 +1,30 @@
 // Place all the styles related to the category controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#content{
+  margin: 0 auto;
+  width: 900px;
+  background-color: #DDDDDD;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+}
+.flower_item {
+  padding: 15px;
+  .bold
+  {
+    font-weight: bold;
+  }
+  border: 1px solid black;
+  width: 250px;
+  height: 450px;
+  margin: 5px;
+  float: left;
+  background: white;
+  box-shadow: 2px 2px 2px grey;
+}
+p {
+  font-size: 16px;
+}
