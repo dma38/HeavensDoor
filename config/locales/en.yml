@@ -24,3 +24,7 @@ en:
   errors:
     messages:
       extension_whitelist_error: "Sorry, only jpg, jpeg, png and gif uploads are accepted."
+  active_admin:
+    dashboard_welcome:
+      call_to_action: "Now you can manage the system content below. "
+      welcome: "Welcome to the dashboard of Heaven's Door!"

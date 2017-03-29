@@ -4,6 +4,9 @@
     strong> Price: 
     = number_to_currency flower_item.price
   p = image_tag flower_item.image
+  p 
+    strong> Created At: 
+    = flower_item.created_at
   - if full_details
     p 
       strong> Description: 

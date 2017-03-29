@@ -1,6 +1,6 @@
 class FlowerItemsController < ApplicationController
   def index
-    @flower_items = FlowerItem.all
+    @flower_items = FlowerItem.all.order(created_at: :desc)
   end
 
   def show

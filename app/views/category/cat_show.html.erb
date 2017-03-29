@@ -2,14 +2,16 @@
 <div class = "category">
   <h1>Category: <%=Category.find(params[:id]).name%></h1>
 <%= render "cat_index"%>
-  <%Category.find(params[:id]).flowerItems.each do |item| %>
+  <%Category.find(params[:id]).flowerItems.order(created_at: :desc).each do |item| %>
   <div class = "flower_item">
-    <h2><%= item.name%></h2>
-    <p><%= number_to_currency item.price %></p>
+    <h2><span class="bold">Name: </span> <%= item.name%></h2>
+    <p><span class="bold">Price: </span><%= number_to_currency item.price %></p>
     <p><%= image_tag(item.image, :alt => item.name) %></p>
+    <p><span class="bold">Created At: </span><%= item.created_at%></p>
     <li><%=link_to "Details", "/flower_items/#{item.id}" %></li>
 
   </div>
   <%end%>
 </div>
+
 <p class= "footer_home"><%= link_to 'Home', root_path %></p>
