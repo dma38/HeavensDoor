@@ -1,6 +1,6 @@
 <div class = "search_box">
   <%= form_tag(search_search_result_path, :method => "get", id: "search_form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search", required:true %>
         <% cat_array = ["Overall"]%>
         <% cat_array += Category.all.map { |cat| [cat.name, cat.id] } %>
 

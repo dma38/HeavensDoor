@@ -1,4 +1,6 @@
-h1 All Flowers
-= render "/category/cat_index"
-= render "/search/search_box"
-.flower_block = render partial: 'flower_item', collection: @flower_items, locals: {full_details: false}
+
+.content
+  h1 All Flowers
+  = render "/category/cat_index"
+  = render "/search/search_box"
+  .flower_block = render partial: 'flower_item', collection: @flower_items, locals: {full_details: false}

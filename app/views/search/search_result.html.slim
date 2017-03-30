@@ -1,1 +1,9 @@
-.flower_block = render partial: '/flower_items/flower_item', collection: @flower_items, locals: {full_details: false}
+.content
+  h1 Search Results
+  = render "/category/cat_index"
+  = render "/search/search_box"
+  - unless @flower_items.size == 0
+      .flower_block = render partial: '/flower_items/flower_item', collection: @flower_items, locals: {full_details: false}
+  - else
+      .error Sorry, no results found
+  

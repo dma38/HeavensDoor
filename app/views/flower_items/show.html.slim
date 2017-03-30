@@ -1,4 +1,7 @@
+.content
+  h1 Flower Details
+  = render "/category/cat_index"
+  = render "/search/search_box"
+  .flower_block = render partial: 'flower_item', object: @flower_item, locals: {full_details: true}
 
-.flower_block = render partial: 'flower_item', object: @flower_item, locals: {full_details: true}
-
-p.footer_home = link_to 'Home', root_path
+  p.footer_home = link_to 'Home', root_path
