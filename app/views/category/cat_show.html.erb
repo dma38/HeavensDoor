@@ -1,7 +1,9 @@
 
 <div class = "category">
   <h1>Category: <%=Category.find(params[:id]).name%></h1>
-<%= render "cat_index"%>
+<%= render "/category/cat_index"%>
+<%= render "/search/search_box"%>
+<div class="flower_block">
   <%Category.find(params[:id]).flowerItems.order(created_at: :desc).each do |item| %>
   <div class = "flower_item">
     <h2><span class="bold">Name: </span> <%= item.name%></h2>
@@ -12,6 +14,7 @@
 
   </div>
   <%end%>
+</div>
 </div>
 
 <p class= "footer_home"><%= link_to 'Home', root_path %></p>

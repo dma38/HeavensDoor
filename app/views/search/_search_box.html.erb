@@ -1,0 +1,10 @@
+<div class = "search_box">
+  <%= form_tag(search_search_result_path, :method => "get", id: "search_form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+        <% cat_array = ["Overall"]%>
+        <% cat_array += Category.all.map { |cat| [cat.name, cat.id] } %>
+
+        <%= select_tag(:category_id, options_for_select(cat_array)) %>
+      <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</div>
