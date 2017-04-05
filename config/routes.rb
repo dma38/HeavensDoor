@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'remove_cart/remove_cart/(:id)', to: "remove_cart#remove_cart"
+
   get 'checkout/checkout'
 
   get 'search/search_result'
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
         end
       end
 
-  
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -9,8 +9,9 @@
 
         </div>
         <div class="flower_block">
-
+          <% subtotal = 0.0 %>
             <%session[:items_in_cart].each do |id, quantity|%>
+
               <div class="flower_item">
                 <% item = FlowerItem.find(id.to_i)%>
                 <h2><span class="bold">Name: </span> <%= item.name%></h2>
@@ -21,12 +22,17 @@
                      <p>Quantity: <%= number_field_tag :quantity, quantity, min: 1, required:true %></p>
                      <%= submit_tag "Save Quantity", :name => nil %>
                    <% end %>
+                   <% price = quantity * item.price%>
+                <h3><span class="bold">Item subtotal: </span> <%= number_to_currency price %></h3>
+                <%subtotal += price%>
                 <p><%=link_to "Details", "/flower_items/#{item.id}" %></p>
-                <p><%=link_to "Remove", "/flower_items/#{item.id}" %></p>
+                <p><%=link_to "Remove", "/remove_cart/remove_cart/#{item.id}" %></p>
               </div>
             <%end%>
-            <!-- <%= submit_tag "Check out", :name => nil %> -->
-
+            <div class = "checkout_block">
+              <h3><span class="bold">Subtotal: </span> <%= number_to_currency subtotal %></h3>
+              <p class="checkout_button"><%=link_to "Checkout", checkout_checkout_path %></p>
+            <div>
         </div>
     </div>
 </div>

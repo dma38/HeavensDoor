@@ -33,3 +33,21 @@ p {
 {
   clear: both;
 }
+
+.checkout_block
+{
+  clear: both;
+  background-color: white;
+  width:830px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+
+  .checkout_button
+  {
+    border: 1px solid black;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+}
