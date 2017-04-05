@@ -19,3 +19,4 @@
       = flower_item.category.name
   - else
     p = link_to 'details', flower_item
+    p = link_to 'Add to Cart', add_to_cart_flower_item_path(flower_item), method: :post
