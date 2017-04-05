@@ -4,6 +4,7 @@
 <%= render "/category/cat_index"%>
 <%= render "/search/search_box"%>
 <div class="flower_block">
+
   <%Category.find(params[:id]).flowerItems.order(created_at: :desc).each do |item| %>
   <div class = "flower_item">
     <h2><span class="bold">Name: </span> <%= item.name%></h2>
@@ -14,6 +15,8 @@
     <p><%=link_to "Add to Cart", add_to_cart_flower_item_path(item), method: :post %></p>
   </div>
   <%end%>
+
+
 </div>
 </div>
 

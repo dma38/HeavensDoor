@@ -10,12 +10,13 @@ class FlowerItemsController < ApplicationController
 
   def add_to_cart
       id = params[:id].to_i
-      session[:items_in_cart] << id unless session[:items_in_cart].include?(id)
+      session[:items_in_cart][id]=1
+      #unless session[:items_in_cart].include?(id)
       redirect_to "/cart/add_to_cart_success"
   end
     private
 
   def initialize_session
-      session[:items_in_cart] ||= []
+      session[:items_in_cart] ||= Hash.new
   end
 end

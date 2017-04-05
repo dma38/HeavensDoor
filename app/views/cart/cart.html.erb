@@ -4,20 +4,29 @@
         <%= render "/category/cat_index"%>
         <%= render "/search/search_box"%>
 
-        <!-- <div>
+        <div>
            <%= debug session[:items_in_cart]%>
-        </div> -->
+
+        </div>
         <div class="flower_block">
-        <%session[:items_in_cart].each do |id|%>
-          <div class="flower_item">
-               <% item = FlowerItem.find(id)%>
-               <h2><span class="bold">Name: </span> <%= item.name%></h2>
-               <p><span class="bold">Price: </span><%= number_to_currency item.price %></p>
-               <p><%= image_tag(item.image, :alt => item.name) %></p>
-               <p><span class="bold">Created At: </span><%= item.created_at%></p>
-               <p><%=link_to "Details", "/flower_items/#{item.id}" %></p>
-          </div>
-          <%end%>
+
+            <%session[:items_in_cart].each do |id, quantity|%>
+              <div class="flower_item">
+                <% item = FlowerItem.find(id.to_i)%>
+                <h2><span class="bold">Name: </span> <%= item.name%></h2>
+                <p><span class="bold">Price: </span><%= number_to_currency item.price %></p>
+                <p><%= image_tag(item.image, :alt => item.name) %></p>
+                 <%= form_tag(cart_cart_path, :method => "get", id: "save_quantity_form") do %>
+                     <%= hidden_field_tag :id, id %>
+                     <p>Quantity: <%= number_field_tag :quantity, quantity, min: 1, required:true %></p>
+                     <%= submit_tag "Save Quantity", :name => nil %>
+                   <% end %>
+                <p><%=link_to "Details", "/flower_items/#{item.id}" %></p>
+                <p><%=link_to "Remove", "/flower_items/#{item.id}" %></p>
+              </div>
+            <%end%>
+            <!-- <%= submit_tag "Check out", :name => nil %> -->
+
         </div>
     </div>
 </div>
