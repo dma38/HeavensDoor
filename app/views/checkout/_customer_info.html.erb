@@ -10,8 +10,10 @@
               <% loc_array = Location.all.map { |loc| [loc.name, loc.id] } %>
             <p>  Location: <%= select_tag(:location_id, options_for_select(loc_array)) %></p>
               <p>Postal Code: <%= text_field_tag :postcode, params[:postcode], required:true %></p>
-
+              Please set a password so that the information can be remembered for future use:
+              <p>Password: <%= password_field_tag :password, params[:password], required:true%></p>
             <%= submit_tag "Submit", :name => nil %>
+              <p>Have ordered from us before? Click here to <%=link_to "Sign in", signin_signin_path %></p>
         <% end %>
 
     <% elsif params[:name] != nil && session[:customer_info] == nil %>
@@ -21,6 +23,7 @@
      <% session[:customer_info][:address] = params[:address] %>
      <% session[:customer_info][:location_id] = params[:location_id].to_i %>
      <% session[:customer_info][:postcode] = params[:postcode] %>
+     <% session[:customer_info][:password] = params[:password] %>
      You have saved your information.
      <div>
        <!-- <div>

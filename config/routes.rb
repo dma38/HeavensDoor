@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'signin/signin', to: "signin#signin"
+  post 'signin/signin_process', to: "signin#signin_process"
+
   get 'placeorder/placeorder'
 
   get 'remove_cart/remove_cart/(:id)', to: "remove_cart#remove_cart"

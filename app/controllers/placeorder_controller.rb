@@ -31,7 +31,11 @@ class PlaceorderController < ApplicationController
         postcode = session[:customer_info][:postcode]
     end
 
-
+    if session[:customer_info]["password"] != nil
+        password = session[:customer_info]["password"]
+    else
+        password = session[:customer_info][:password]
+    end
 
    customer_location = Location.where(:id => location_id).first
 
@@ -39,13 +43,25 @@ class PlaceorderController < ApplicationController
    puts email
    puts address
    puts location_id
-   new_cust = Customer.new( :name =>  name,
-                            :email => email,
-                            :address => address,
-                            :postalCode => postcode
-                          )
-    new_cust.location = customer_location
-    new_cust.save
+
+   if session[:customer_info][:exist] == nil && session[:customer_info]["exist"] == nil && Customer.where(:email => email).where(:password => password).first == nil
+
+     new_cust = Customer.new( :name =>  name,
+                              :email => email,
+                              :address => address,
+                              :postalCode => postcode,
+                              :password => password
+                            )
+      new_cust.location = customer_location
+      new_cust.save
+    else
+       new_cust = Customer.where(:email => email).first
+       new_cust.name = name
+       new_cust.address = address
+       new_cust.postalCode = postcode
+       new_cust.location = customer_location
+       new_cust.save
+    end
 
     init_status = Status.where(:id => 1).first
     tax_rate = Location.find(location_id).tax_rate
@@ -66,12 +82,13 @@ class PlaceorderController < ApplicationController
       new_lineitem.price = price
       new_lineitem.save
 
-    end
 
     session[:items_in_cart] = Hash.new
 
   end
-  def my_order
 
-  end
+end
+def my_order
+
+end
 end
