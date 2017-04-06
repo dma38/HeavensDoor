@@ -13,7 +13,6 @@
           <% item = FlowerItem.find(id.to_i)%>
           <h2><span class="bold">Name: </span> <%= item.name%></h2>
           <p><span class="bold">Price: </span><%= number_to_currency item.price %></p>
-          <p><%= image_tag(item.image, :alt => item.name) %></p>
 
                <p>Quantity: <%=  quantity %></p>
 
@@ -34,7 +33,7 @@
           <p><span class="bold">Tax rate: </span> <%= tax_rate *100 %>%</p>
           <p><span class="bold">Tax: </span> <%= number_to_currency subtotal * tax_rate %></p>
           <p><span class="bold">Total Price: </span> <%= number_to_currency subtotal * (1+tax_rate) %></p>
-          <p class="checkout_button"><%=link_to "Place Order", checkout_checkout_path %></p>
+          <p class="checkout_button"><%=link_to "Place Order", placeorder_placeorder_path %></p>
        <% else %>
           <h2>Please enter your information for full order details. </h2>
        <%end%>

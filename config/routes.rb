@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'placeorder/placeorder'
+
   get 'remove_cart/remove_cart/(:id)', to: "remove_cart#remove_cart"
 
   get 'checkout/checkout'
