@@ -11,6 +11,13 @@
   box-sizing: border-box;
   overflow: hidden;
 
+  .order_info
+  {
+
+    float:left;
+    width:800px;
+    margin: 0 auto;
+  }
 }
 .flower_item {
   padding: 15px;
@@ -42,6 +49,7 @@ p {
   margin: 20px auto;
   padding: 20px;
   text-align: center;
+  float:left;
 
   .checkout_button
   {
@@ -50,4 +58,10 @@ p {
     margin: 0 auto;
     border-radius: 8px;
   }
+}
+
+.customer_info
+{
+  clear:both;
+
 }

@@ -1,0 +1,49 @@
+
+  <div class="customer_info">
+    <h3>Customer Information</h3>
+    <% if params[:name] == nil && session[:customer_info] == nil%>
+
+        <%= form_tag({}, :method => "get", id: "customer_info_form") do %>
+        <p>Email: <%= text_field_tag :email, params[:email], required:true %></p>
+          <p>  Name: <%= text_field_tag :name, params[:name], required:true %></p>
+            <p>Address: <%= text_field_tag :address, params[:address], required:true %></p>
+              <% loc_array = Location.all.map { |loc| [loc.name, loc.id] } %>
+            <p>  Location: <%= select_tag(:location_id, options_for_select(loc_array)) %></p>
+              <p>Postal Code: <%= text_field_tag :postcode, params[:postcode], required:true %></p>
+
+            <%= submit_tag "Submit", :name => nil %>
+        <% end %>
+
+    <% elsif params[:name] != nil && session[:customer_info] == nil %>
+     <% session[:customer_info] = Hash.new %>
+     <% session[:customer_info][:name] = params[:name] %>
+     <% session[:customer_info][:email] = params[:email] %>
+     <% session[:customer_info][:address] = params[:address] %>
+     <% session[:customer_info][:location_id] = params[:location_id].to_i %>
+     <% session[:customer_info][:postcode] = params[:postcode] %>
+     You have saved your information.
+     <div>
+       <!-- <div>
+          <%= debug session[:customer_info]%>
+
+       </div> -->
+        <p>Name: <%=session[:customer_info][:name]%></p>
+        <p>Email: <%=session[:customer_info][:email]%></p>
+        <p>Address: <%=session[:customer_info][:address]%></p>
+        <% location_id = session[:customer_info][:location_id]%>
+        <p>Location: <%= Location.find(location_id).name %></p>
+        <p>Postal Code: <%=session[:customer_info][:postcode]%></p>
+
+     </div>
+    <%else%>
+
+    <div>
+      <p>Name: <%=session[:customer_info]["name"]%></p>
+      <p>Email: <%=session[:customer_info]["email"]%></p>
+      <p>Address: <%=session[:customer_info]["address"]%></p>
+      <% location_id = session[:customer_info]["location_id"]%>
+      <p>Location: <%= Location.find(location_id).name %></p>
+      <p>Postal Code: <%=session[:customer_info]["postcode"]%></p>
+    <% end %>
+     </div>
+</div>
