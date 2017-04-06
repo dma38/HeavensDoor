@@ -28,3 +28,7 @@ en:
     dashboard_welcome:
       call_to_action: "Now you can manage the system content below. "
       welcome: "Welcome to the dashboard of Heaven's Door!"
+  pagination:
+      previous: "&lt; Previous"
+      next: "Next &gt;"
+      truncate: "..."

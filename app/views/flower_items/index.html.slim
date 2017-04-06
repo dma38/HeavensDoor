@@ -4,3 +4,5 @@
   = render "/category/cat_index"
   = render "/search/search_box"
   .flower_block = render partial: 'flower_item', collection: @flower_items, locals: {full_details: false}
+
+  = paginate @flower_items

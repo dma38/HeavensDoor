@@ -1,7 +1,7 @@
 class FlowerItemsController < ApplicationController
   before_action :initialize_session
   def index
-    @flower_items = FlowerItem.all.order(created_at: :desc)
+    @flower_items = FlowerItem.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show
