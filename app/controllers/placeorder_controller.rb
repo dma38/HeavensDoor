@@ -68,8 +68,10 @@ class PlaceorderController < ApplicationController
 
     end
 
+    session[:items_in_cart] = Hash.new
+
   end
   def my_order
-  
+
   end
 end
