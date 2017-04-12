@@ -21,6 +21,9 @@ class ChargesController < ApplicationController
      if charge.paid && charge.amount == @amount
        order = Order.find(session[:order_id])
        order.status_id = 2
+       order.customer_stripe_id = customer.id
+       order.charge_stripe_id = charge.id
+       order.payment_amount = charge.amount / 100.0
        order.save
      end
      redirect_to "/placeorder/payment"

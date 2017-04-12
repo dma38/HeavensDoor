@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406033634) do
+ActiveRecord::Schema.define(version: 20170412012250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,8 +100,11 @@ ActiveRecord::Schema.define(version: 20170406033634) do
     t.decimal  "tax_rate"
     t.integer  "status_id"
     t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "customer_stripe_id"
+    t.string   "charge_stripe_id"
+    t.string   "payment_amount"
     t.index ["customer_id"], name: "index_orders_on_customer_id", using: :btree
     t.index ["status_id"], name: "index_orders_on_status_id", using: :btree
   end
