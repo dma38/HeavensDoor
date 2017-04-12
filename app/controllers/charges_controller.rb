@@ -4,7 +4,7 @@ class ChargesController < ApplicationController
 
   def create
     # Amount in cents
-     @amount = 500
+     @amount = (session[:total_price].to_f.round(2) * 100).to_i
 
      customer = Stripe::Customer.create(
        :email => params[:stripeEmail],
@@ -17,10 +17,12 @@ class ChargesController < ApplicationController
        :description => 'Rails Stripe customer',
        :currency    => 'cad'
      )
-     order = Order.find(session[:order_id])
-     order.status_id = 2
-     order.save
-     
+
+     if charge.paid && charge.amount == @amount
+       order = Order.find(session[:order_id])
+       order.status_id = 2
+       order.save
+     end
      redirect_to "/placeorder/payment"
 
     rescue Stripe::CardError => e
