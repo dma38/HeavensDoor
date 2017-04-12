@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  get 'charges/new'
+
+  get 'charges/create'
+
   get 'signin/signin', to: "signin#signin"
   post 'signin/signin_process', to: "signin#signin_process"
 
   get 'placeorder/placeorder'
 
   get 'remove_cart/remove_cart/(:id)', to: "remove_cart#remove_cart"
+
+  get 'placeorder/payment', to: "placeorder#payment_accepted"
 
   get 'checkout/checkout'
 
@@ -25,6 +31,7 @@ Rails.application.routes.draw do
         end
       end
 
+  resources :charges
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

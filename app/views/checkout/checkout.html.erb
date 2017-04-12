@@ -32,7 +32,9 @@
           <%tax_rate = Location.find(location_id).tax_rate%>
           <p><span class="bold">Tax rate: </span> <%= tax_rate *100 %>%</p>
           <p><span class="bold">Tax: </span> <%= number_to_currency subtotal * tax_rate %></p>
-          <p><span class="bold">Total Price: </span> <%= number_to_currency subtotal * (1+tax_rate) %></p>
+          <% total = subtotal * (1+tax_rate) %>
+          <% session[:total_price] = total%>
+          <p><span class="bold">Total Price: </span> <%= number_to_currency total %></p>
           <p class="checkout_button"><%=link_to "Place Order", placeorder_placeorder_path %></p>
        <% else %>
           <h2>Please enter your information for full order details. </h2>

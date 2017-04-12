@@ -71,7 +71,7 @@ class PlaceorderController < ApplicationController
     new_order.status = init_status
     new_order.save
     puts new_order.inspect
-
+    session[:order_id] = new_order.id
     items_in_cart = session[:items_in_cart]
     items_in_cart.each do |id, quantity|
       new_lineitem = LineItem.new(:quantity => quantity)
@@ -85,10 +85,14 @@ class PlaceorderController < ApplicationController
 
     session[:items_in_cart] = Hash.new
 
+
+    end
+
   end
+  def my_order
 
-end
-def my_order
+  end
+  def payment_accepted
 
-end
+  end
 end
