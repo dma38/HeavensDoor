@@ -1,17 +1,21 @@
 <div class="content">
-  <h1> Checkout#checkout </h1>
-  <p> Find me in app/views/checkout/checkout.html.erb </p>
+  <h1> Checkout</h1>
   <%= render "/category/cat_index"%>
   <%= render "/search/search_box"%>
-  <%= render "customer_info"%>
-  <h2>Order information</h2>
-  <div class="order_info">
+  <div class="checkout_area">
+     <%= render "customer_info"%>
+     <br>
+     <br>
+     <br>
+
+    <div class="order_info">
+      <h2>Order information</h2>
     <% subtotal = 0.0 %>
       <%session[:items_in_cart].each do |id, quantity|%>
 
         <div class="order_item">
           <% item = FlowerItem.find(id.to_i)%>
-          <h2><span class="bold">Name: </span> <%= item.name%></h2>
+          <p><span class="bold">Name: </span> <%= item.name%></p>
           <p><span class="bold">Price: </span><%= number_to_currency item.price %></p>
 
                <p>Quantity: <%=  quantity %></p>
@@ -23,6 +27,9 @@
       <%end%>
       <div class = "checkout_block">
         <%if session[:customer_info] != nil%>
+        <br>
+        <br>
+        <br>
           <h3><span class="bold">Subtotal: </span> <%= number_to_currency subtotal %></h3>
           <%if session[:customer_info]["location_id"] != nil%>
               <% location_id = session[:customer_info]["location_id"]%>
@@ -41,4 +48,5 @@
        <%end%>
      </div>
   </div>
+</div>
 </div>

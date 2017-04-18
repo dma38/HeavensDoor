@@ -10,11 +10,29 @@
   box-sizing: border-box;
   overflow: hidden;
 
-  .order_info
-  {
-    background-color:white;
-    float:left;
-    width:800px;
-    clear:both;
+  .checkout_area{
+      background-color: #DDDDDD;
+      margin: 0 auto;
+      width: 900px;
+      .customer_info
+      {
+        padding: 10px;
+      }
+      .order_info{
+      width:900px;
+      padding: 10px;
+      margin: 0 auto;
+        .order_item
+        {
+
+          float:left;
+          width:800px;
+          clear:both;
+          padding: 10px;
+        }
+      }
+
+
   }
+
 }

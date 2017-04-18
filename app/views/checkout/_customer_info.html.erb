@@ -1,6 +1,6 @@
 
   <div class="customer_info">
-    <h3>Customer Information</h3>
+    <h2>Customer Information</h2>
     <% if params[:name] == nil && session[:customer_info] == nil%>
 
         <%= form_tag({}, :method => "get", id: "customer_info_form") do %>

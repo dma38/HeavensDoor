@@ -1,5 +1,18 @@
-<h1>Payment Accepted</h1>
-<p>Thank you for Payment! We will arrange shipping as soon as possible.</p>
 
 
-<p><%= link_to 'Home', root_path %></p>
+
+<div class="content">
+  <h1>Shopping Cart</h1>
+    <div class = "cart">
+        <%= render "/category/cat_index"%>
+        <%= render "/search/search_box"%>
+        <div class="clear_box">
+          <h1>Payment Accepted</h1>
+          <p>Thank you for Payment! We will arrange shipping as soon as possible.</p>
+
+
+          <p><%= link_to 'Home', root_path %></p>
+
+        </div>
+    </div>
+</div>
