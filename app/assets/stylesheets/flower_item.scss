@@ -5,12 +5,14 @@
 .content{
   margin: 0 auto;
   width: 900px;
-  background-color: #DDDDDD;
+  background-color: #FFEAF1;
   height: auto;
   padding: 10px;
   box-sizing: border-box;
   overflow: hidden;
-
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px black;
+  border: 1px solid black;
   .order_info
   {
 
@@ -32,6 +34,16 @@
   float: left;
   background: white;
   box-shadow: 2px 2px 2px grey;
+  border-radius: 6px;
+
+  .button
+  {
+    background-color: #FFEAF1;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px gray;
+  }
 }
 p {
   font-size: 16px;
