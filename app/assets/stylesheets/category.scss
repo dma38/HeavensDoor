@@ -39,5 +39,19 @@ p {
 
   float:left;
   width:300px;
+ul{
+  list-style: none;
+  li{
+
+      a{
+      text-decoration: none;
+        }
+        a:hover{
+          color:#E678A5;
+        }
+      }
+      padding:10px;
+      width: 200px;
+    }
 
 }
