@@ -1,10 +1,16 @@
-<h1>Sign in</h1>
-<div class= "signin">
-  <p>Email: </p>
-  <%= form_tag(signin_signin_process_path, :method => "post", id: "signin_form") do %>
-  <p><%= text_field_tag :email, params[:email], required:true %></p>
-  <p>  Password: </p>
-  <p><%= password_field_tag :password, params[:password], required:true %></p>
-  <p>  <%= submit_tag "Sign in", :name => nil %></p>
-<% end %>
+
+<div class="content">
+  <%= render "/layouts/header"%>
+  <h1>Sign in</h1>
+  <%= render "/category/cat_index"%>
+  <%= render "/search/search_box"%>
+  <div class= "clear_box">
+    <p>Email: </p>
+    <%= form_tag(signin_signin_process_path, :method => "post", id: "signin_form") do %>
+    <p><%= text_field_tag :email, params[:email], required:true %></p>
+    <p>  Password: </p>
+    <p><%= password_field_tag :password, params[:password], required:true %></p>
+    <p>  <%= submit_tag "Sign in", :name => nil %></p>
+  <% end %>
+  </div>
 </div>

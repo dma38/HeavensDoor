@@ -1,4 +1,5 @@
 <div class="content">
+  <%= render "/layouts/header"%>
 <div class = "category">
   <h1>Category: <%=Category.find(params[:id]).name%></h1>
 <%= render "/category/cat_index"%>
