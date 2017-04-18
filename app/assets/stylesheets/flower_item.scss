@@ -1,7 +1,10 @@
 // Place all the styles related to the flower_item controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+body
+{
+  background-image: url("flowers.jpg");
+}
 .content{
   margin: 0 auto;
   width: 900px;
@@ -43,7 +46,16 @@
     text-align: center;
     border-radius: 7px;
     box-shadow: 1px 1px 1px gray;
+
+    a{
+      text-decoration: none;
+    }
+    a:hover{
+      color: red;
+    }
+
   }
+
 }
 p {
   font-size: 16px;

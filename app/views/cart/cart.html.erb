@@ -4,7 +4,7 @@
         <%= render "/category/cat_index"%>
         <%= render "/search/search_box"%>
 
-        
+
         <div class="flower_block">
           <% subtotal = 0.0 %>
             <%session[:items_in_cart].each do |id, quantity|%>
@@ -22,8 +22,8 @@
                    <% price = quantity * item.price%>
                 <h3><span class="bold">Item subtotal: </span> <%= number_to_currency price %></h3>
                 <%subtotal += price%>
-                <p><%=link_to "Details", "/flower_items/#{item.id}" %></p>
-                <p><%=link_to "Remove", "/remove_cart/remove_cart/#{item.id}" %></p>
+                <p class="button"><%=link_to "Details", "/flower_items/#{item.id}" %></p>
+                <p class="button"><%=link_to "Remove", "/remove_cart/remove_cart/#{item.id}" %></p>
               </div>
             <%end%>
             <div class = "checkout_block">
