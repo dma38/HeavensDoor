@@ -4,10 +4,7 @@
         <%= render "/category/cat_index"%>
         <%= render "/search/search_box"%>
 
-        <div>
-           <%= debug session[:items_in_cart]%>
-
-        </div>
+        
         <div class="flower_block">
           <% subtotal = 0.0 %>
             <%session[:items_in_cart].each do |id, quantity|%>
