@@ -4,6 +4,13 @@
   <h1>Category: <%=Category.find(params[:id]).name%></h1>
 <%= render "/category/cat_index"%>
 <%= render "/search/search_box"%>
+<% if flash[:notice] %>
+  <div class="flash">
+  <div class="message"><%= flash[:notice]%></div>
+  <div class="btn"><%= button_to 'Dismiss', "/cat_show/#{params[:id]}", :method => :get %></div>
+
+  </div>
+<% end %>
 <div class="flower_block">
 
   <%Category.find(params[:id]).flowerItems.order(created_at: :desc).each do |item| %>

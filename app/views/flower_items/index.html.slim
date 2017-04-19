@@ -5,6 +5,11 @@
 
   = render "/category/cat_index"
   = render "/search/search_box"
+  - if flash[:notice]
+    .flash
+      .message = flash[:notice]
+      .btn = button_to 'Dismiss', root_path, :method => :get
+
   .flower_block = render partial: 'flower_item', collection: @flower_items, locals: {full_details: false}
 
   = paginate @flower_items

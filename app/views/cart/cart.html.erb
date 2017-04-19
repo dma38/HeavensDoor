@@ -7,10 +7,20 @@
 
 
         <div class="flower_block">
+
+          <% if flash[:notice] %>
+            <div class="flash">
+            <div class="message"><%= flash[:notice]%></div>
+            <div class="btn"><%= button_to 'Dismiss', "/cart/cart", :method => :get %></div>
+
+            </div>
+          <% end %>
+
           <% subtotal = 0.0 %>
             <%session[:items_in_cart].each do |id, quantity|%>
 
               <div class="flower_item">
+
                 <% item = FlowerItem.find(id.to_i)%>
                 <h2><span class="bold">Name: </span> <%= item.name%></h2>
                 <p><span class="bold">Price: </span><%= number_to_currency item.price %></p>

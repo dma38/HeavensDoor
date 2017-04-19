@@ -12,7 +12,9 @@ class FlowerItemsController < ApplicationController
       id = params[:id].to_i
       session[:items_in_cart][id]=1
       #unless session[:items_in_cart].include?(id)
-      redirect_to "/cart/add_to_cart_success"
+      flash[:notice] = "Item added to shopping cart"
+      redirect_to :back
+
   end
     private
 
