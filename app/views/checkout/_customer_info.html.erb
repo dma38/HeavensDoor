@@ -4,14 +4,14 @@
     <% if params[:name] == nil && session[:customer_info] == nil%>
 
         <%= form_tag({}, :method => "get", id: "customer_info_form") do %>
-        <p>Email: <%= text_field_tag :email, params[:email], required:true %></p>
-          <p>  Name: <%= text_field_tag :name, params[:name], required:true %></p>
-            <p>Address: <%= text_field_tag :address, params[:address], required:true %></p>
+        <p>Email: </p><p><%= text_field_tag :email, params[:email], required:true %></p>
+          <p>  Name: </p><p><%= text_field_tag :name, params[:name], required:true %></p>
+            <p>Address: </p><p><%= text_field_tag :address, params[:address], required:true %></p>
               <% loc_array = Location.all.map { |loc| [loc.name, loc.id] } %>
-            <p>  Location: <%= select_tag(:location_id, options_for_select(loc_array)) %></p>
-              <p>Postal Code: <%= text_field_tag :postcode, params[:postcode], required:true %></p>
+            <p>  Location: </p><p><%= select_tag(:location_id, options_for_select(loc_array)) %></p>
+              <p>Postal Code: </p><p><%= text_field_tag :postcode, params[:postcode], required:true %></p>
               Please set a password so that the information can be remembered for future use:
-              <p>Password: <%= password_field_tag :password, params[:password], required:true%></p>
+              <p>Password: </p><p><%= password_field_tag :password, params[:password], required:true%></p>
             <%= submit_tag "Submit", :name => nil %>
               <p>Have ordered from us before? Click here to <%=link_to "Sign in", signin_signin_path %></p>
         <% end %>
